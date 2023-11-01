@@ -44,4 +44,13 @@ class Warehouse:
         else:
             print(f"The {name_update} does not exist in the warehouse")
 
-   
+    def removeProduct(self):
+        name_remove = input("Enter the name of the product you want to remove:").lower()
+        for product in self.products:
+            if name_remove == product["name"]:
+                self.products.remove(product)
+                print(product)
+                print(self.products)
+                break
+
+
