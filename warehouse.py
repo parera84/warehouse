@@ -34,4 +34,14 @@ class Warehouse:
         else:
             print(f"The {name_update} does not exist in the warehouse")
 
-    
+    def updateQuantity(self):
+        name_update = input("Enter the name of the product you want to update:").lower()
+        for product in self.products:
+            if product["name"] == name_update:
+                quantity_update = int(input("Enter the updated quantity:"))
+                product["quantity"] = quantity_update
+                break
+        else:
+            print(f"The {name_update} does not exist in the warehouse")
+
+   
