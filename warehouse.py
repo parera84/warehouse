@@ -87,5 +87,11 @@ class Warehouse:
                 quantity_list.append(product)
         return quantity_list
 
-        
-
+    def price_between(self):
+        min=float("Enter the minimum price:")
+        max=float("Enter the maximum price:")
+        between=[]
+        for product in self.products:
+            if product['price']>=min and product['price']<=max:
+                between.append(product)
+        return between
