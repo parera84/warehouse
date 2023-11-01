@@ -6,7 +6,7 @@ class Warehouse:
 
     def addProduct(self):
         while True:
-            name = input("Enter the product name: ").lower()
+            name = input("Enter the product name(or done to finish) ").lower()
             if name == "done":
                 break
             price = float(input("Enter the price:"))
@@ -63,11 +63,9 @@ class Warehouse:
 
 
     def TotalValue(self):
-        total_value=[]
-        sum=0
+        total_value=0
         for product in self.products:
-            sum=product['price']*product['quantity']
-            total_value.append(product)
+           total_value += product['price']*product['quantity']
         return (f"Total value of the warehouse is{total_value}")
     
 
@@ -88,8 +86,8 @@ class Warehouse:
         return quantity_list
 
     def price_between(self):
-        min=float("Enter the minimum price:")
-        max=float("Enter the maximum price:")
+        min=float(input("Enter the minimum price:"))
+        max=float(input("Enter the maximum price:"))
         between=[]
         for product in self.products:
             if product['price']>=min and product['price']<=max:
@@ -153,4 +151,8 @@ class Warehouse:
         return product_names_and_quantity
 
 
-        
+    
+              
+            
+          
+                
