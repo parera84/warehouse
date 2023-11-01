@@ -95,3 +95,39 @@ class Warehouse:
             if product['price']>=min and product['price']<=max:
                 between.append(product)
         return between
+    
+    def price_asc(self):
+        # Create a copy of the original list 
+        products_copy = self.products.copy()
+        swapped = True
+        while swapped:
+            swapped = False
+            for i in range(len(products_copy) - 1):
+                if products_copy[i]['price'] > products_copy[i + 1]['price']:
+                    # Swap the products
+                    products_copy[i], products_copy[i + 1] = products_copy[i + 1], products_copy[i]
+                    swapped = True
+        product_names_and_prices = [(product['name'], product['price']) for product in products_copy]
+        return product_names_and_prices
+
+    def price_desc(self):
+        # Create a copy of the original list 
+        products_copy = self.products.copy()
+        swapped = True
+        while swapped:
+            swapped = False
+            for i in range(len(products_copy) - 1):
+                if products_copy[i]['price'] < products_copy[i + 1]['price']:
+                    # Swap the products
+                    products_copy[i], products_copy[i + 1] = products_copy[i + 1], products_copy[i]
+                    swapped = True
+        product_names_and_prices = [(product['name'], product['price']) for product in products_copy]
+        return product_names_and_prices
+
+
+        
+  
+              
+            
+          
+                
