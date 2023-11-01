@@ -21,5 +21,14 @@ class warehouse:
             else
                 print(f"{product[name]} is out of stock")
 
+    def updatePrice(self):
+        name_update=input("Enter the name of the product yo want to update:").upper()
+        for product in self.products:
+            if product["name"]==name_update:
+                price_update=float(input("Enter the updated price:"))
+                product["price"]=price_update
+                break
+            else
+                print(f"The {name_update} do not exist in the warehouse")
     
     
