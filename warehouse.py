@@ -79,7 +79,13 @@ class Warehouse:
                 price_list.append(product)
         return price_list
     
-    
+    def quantity_search(self):
+        quantity_list=[]
+        quantity=float(input("Enter the quantity you want:"))
+        for product in self.products:
+            if product['quantity']==quantity:
+                quantity_list.append(product)
+        return quantity_list
 
         
 
