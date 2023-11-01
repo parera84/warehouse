@@ -69,5 +69,17 @@ class Warehouse:
             sum=product['price']*product['quantity']
             total_value.append(product)
         return (f"Total value of the warehouse is{total_value}")
+    
+
+    def price_search(self):
+        price_list=[]
+        price=float(input("Enter the price you want:"))
+        for product in self.products:
+            if product['price']==price:
+                price_list.append(product)
+        return price_list
+    
+    
+
         
 
