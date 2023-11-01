@@ -54,3 +54,9 @@ class Warehouse:
                 break
 
 
+    def product_search(self):
+        n=input("Enter the product you want:")
+        if product['name']==n:
+            return(f"name{product['name']}-price{product['price']}-quantity{product['quantity']}")
+        else:
+            print(f"the {n} product you want do notexist in the warehouse")
