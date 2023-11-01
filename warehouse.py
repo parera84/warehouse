@@ -123,11 +123,34 @@ class Warehouse:
                     swapped = True
         product_names_and_prices = [(product['name'], product['price']) for product in products_copy]
         return product_names_and_prices
+    
+    def quantity_asc(self):
+        # Create a copy of the original list 
+        products_copy = self.products.copy()
+        swapped = True
+        while swapped:
+            swapped = False
+            for i in range(len(products_copy) - 1):
+                if products_copy[i]['quantity'] > products_copy[i + 1]['quantity']:
+                    # Swap the products
+                    products_copy[i], products_copy[i + 1] = products_copy[i + 1], products_copy[i]
+                    swapped = True
+        product_names_and_quantity = [(product['name'], product['quantity']) for product in products_copy]
+        return product_names_and_quantity
+
+    def quantity_desc(self):
+        # Create a copy of the original list 
+        products_copy = self.products.copy()
+        swapped = True
+        while swapped:
+            swapped = False
+            for i in range(len(products_copy) - 1):
+                if products_copy[i]['quantity'] < products_copy[i + 1]['quantity']:
+                    # Swap the products
+                    products_copy[i], products_copy[i + 1] = products_copy[i + 1], products_copy[i]
+                    swapped = True
+        product_names_and_quantity = [(product['name'], product['quantity']) for product in products_copy]
+        return product_names_and_quantity
 
 
         
-  
-              
-            
-          
-                
