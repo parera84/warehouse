@@ -59,4 +59,15 @@ class Warehouse:
         if product['name']==n:
             return(f"name{product['name']}-price{product['price']}-quantity{product['quantity']}")
         else:
-            print(f"the {n} product you want do notexist in the warehouse")
+            print(f"the {n} product you want do not exist in the warehouse")
+
+
+    def TotalValue(self):
+        total_value=[]
+        sum=0
+        for product in self.products:
+            sum=product['price']*product['quantity']
+            total_value.append(product)
+        return (f"Total value of the warehouse is{total_value}")
+        
+
