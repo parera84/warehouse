@@ -19,11 +19,23 @@ class Warehouse:
             print(self.products)
 
     def show(self):
+        products_list=[]
         for product in self.products:
             if product["quantity"] > 0:
-                print(f"name: {product['name']} - price: {product['price']} - quantity: {product['quantity']}")
+               products_list.append({
+                   "name":product['name'],
+                   "price":product['price'],
+                   "quantity":product['quantity']
+               })
             else:
-                print(f"{product['name']} is out of stock")
+                products_list.append({
+                    "name":print(f"Out of stock"),
+                    "price":product['price'],
+                    "quantity":0
+                })
+        df = pd.DataFrame(products_list)
+        print(df)
+                
 
     def updatePrice(self):
         name_update = input("Enter the name of the product you want to update:").lower()
@@ -55,13 +67,16 @@ class Warehouse:
                 break
 
 
-    def product_search(self,product):
-        n=input("Enter the product you want:")
-        if product['name']==n:
-            return(f"name{product['name']}-price{product['price']}-quantity{product['quantity']}")
-        else:
-            print(f"the {n} product you want do not exist in the warehouse")
-
+    def product_search(self):
+        n = input("Enter the product you want:")
+        found = False 
+        for product in self.products:
+            if product['name'] == n:
+                print(f"Name: {product['name']} - Price: {product['price']} - Quantity: {product['quantity']}")
+                found = True
+                break
+        if not found:
+            print(f"The {n} product you want does not exist in the warehouse")
 
     def TotalValue(self):
         total_value=0
@@ -107,7 +122,9 @@ class Warehouse:
                     products_copy[i], products_copy[i + 1] = products_copy[i + 1], products_copy[i]
                     swapped = True
         product_names_and_prices = [(product['name'], product['price']) for product in products_copy]
-        return product_names_and_prices
+        df = pd.DataFrame(product_names_and_prices, columns=["Name", "Price"])
+        return df
+        
 
     def price_desc(self):
         # Create a copy of the original list 
@@ -121,7 +138,8 @@ class Warehouse:
                     products_copy[i], products_copy[i + 1] = products_copy[i + 1], products_copy[i]
                     swapped = True
         product_names_and_prices = [(product['name'], product['price']) for product in products_copy]
-        return product_names_and_prices
+        df = pd.DataFrame(product_names_and_prices, columns=["Name", "Price"])
+        return df
     
     def quantity_asc(self):
         # Create a copy of the original list 
@@ -135,7 +153,8 @@ class Warehouse:
                     products_copy[i], products_copy[i + 1] = products_copy[i + 1], products_copy[i]
                     swapped = True
         product_names_and_quantity = [(product['name'], product['quantity']) for product in products_copy]
-        return product_names_and_quantity
+        df = pd.DataFrame(product_names_and_quantity, columns=["Name", "quantity"])
+        return df
 
     def quantity_desc(self):
         # Create a copy of the original list 
@@ -149,7 +168,8 @@ class Warehouse:
                     products_copy[i], products_copy[i + 1] = products_copy[i + 1], products_copy[i]
                     swapped = True
         product_names_and_quantity = [(product['name'], product['quantity']) for product in products_copy]
-        return product_names_and_quantity
+        df = pd.DataFrame(product_names_and_quantity, columns=["Name", "quantity"])
+        return df
 
 
     @staticmethod
