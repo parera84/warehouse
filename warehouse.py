@@ -4,6 +4,7 @@ class Warehouse:
     def __init__(self):
         self.products = []
 
+
     def addProduct(self):
         while True:
             name = input("Enter the product name(or done to finish) ").lower()
@@ -54,7 +55,7 @@ class Warehouse:
                 break
 
 
-    def product_search(self):
+    def product_search(self,product):
         n=input("Enter the product you want:")
         if product['name']==n:
             return(f"name{product['name']}-price{product['price']}-quantity{product['quantity']}")
@@ -151,7 +152,44 @@ class Warehouse:
         return product_names_and_quantity
 
 
-    
+    @staticmethod
+    def main():
+        wh = Warehouse()
+        while True:
+            choice = int(input("Enter what you want to do:\n1. Add a new product\n2. Show the products availability\n3. Remove a product\n4. Update the price of an existing product\n5. Update the availability\n6. Search a product by name\n7. Show the total value of the warehouse\n8. Search product by price\n9. Search product by availability\n10. Search product within price range\n11. See the list of products by ascending price\n12. See the list of products by descending price\n13. See the list of products in ascending availability\n14. See the list of products in descending availability\n"))
+            if choice == 1:
+                wh.addProduct()
+            elif choice == 2:
+                wh.show()
+            elif choice == 3:
+                wh.removeProduct()
+            elif choice == 4:
+                wh.updatePrice()
+            elif choice == 5:
+                wh.updateQuantity()
+            elif choice == 6:
+                wh.product_search()
+            elif choice == 7:
+                wh.TotalValue()
+            elif choice == 8:
+                wh.price_search()
+            elif choice == 9:
+                wh.quantity_search()
+            elif choice == 10:
+                wh.price_between()
+            elif choice == 11:
+                wh.price_asc()
+            elif choice == 12:
+                wh.price_desc()
+            elif choice == 13:
+                wh.quantity_asc()
+            elif choice == 14:
+                wh.quantity_desc()
+            else:
+                break
+
+if __name__ == "__main__":
+    Warehouse.main()
               
             
           
